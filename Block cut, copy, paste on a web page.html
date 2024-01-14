@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+
+// Test field for cut, copy, paste commands, delete next five lines when not testing
+let inputField = document.createElement("input");
+inputField.value = "Try to cut, copy or paste this text, it will not work";
+inputField.style.width = '400px';
+inputField.style.height = '20px';
+document.body.appendChild(inputField);
+
+// Cancels cut commands on a web page
+document.addEventListener("cut", function(cutCommand) {
+    cutCommand.preventDefault();
+});
+
+// Cancels copy commands on a web page
+document.addEventListener("copy", function(copyCommand) {
+    copyCommand.preventDefault();
+});
+
+// Cancels paste commands on a web page
+document.addEventListener("paste", function(pasteCommands) {
+    pasteCommands.preventDefault();
+});
+
+</script> 
+
+</body>
+</html>
