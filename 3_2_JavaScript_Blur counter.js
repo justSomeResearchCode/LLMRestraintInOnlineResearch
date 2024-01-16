@@ -3,6 +3,9 @@
 <body>
 <script>
 
+// You will need to adapt the hidden input field ID (“v_1”) and (“v_2”) to the ID of your variable. 
+// If you have existing hidden input fields, you need to adapt (“v_1”) and (“v_2”) to your hidden input field ID that is already in place.
+
 // Counter for the number of times that participants leave the page
 // Declaring a variable for counting up the number of times, participants left study page, 
 // how long participants left study page and a start and end timestamp variable
