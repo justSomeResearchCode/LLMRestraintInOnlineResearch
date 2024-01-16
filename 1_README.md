@@ -6,6 +6,6 @@ There are two types of code snippets in here: (1) cancel cut, copy and paste com
 
  3_ files contain HTML files with code for implementation in online research tools
 
- 4_ files contain code examples to save the variable values to your research tool's database. The first one contains code for Qualtrics, which has a JavaScript function to save data in the database, the second one saves the values in hidden input fields.
+ 4_ files contain code examples to save the variable values to your research tool's database. The first one contains code for Qualtrics, which has a JavaScript function to save data in the database, the second one saves the values in hidden input fields, which you can adapt for your research tool.
 
 You will find additional information in the comments of the respective code.
