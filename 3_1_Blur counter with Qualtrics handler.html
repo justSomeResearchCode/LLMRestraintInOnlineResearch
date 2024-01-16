@@ -44,12 +44,6 @@ document.addEventListener("focus", (event) => {
     // Implement the handler for variable secondsOutsideWindow right here    
     Qualtrics.SurveyEngine.setEmbeddedData('nameEmbeddedVariable', secondsOutsideWindow);
 
-    // Displays information for testing, please delete this line and the following lines until document.body.appendChild(element); when not testing
-    let element = document.createElement('div');
-    element.textContent = "Number of times you left the page: " + counterPageLeave + "; " + "number of seconds you have been outside the page: " + secondsOutsideWindow;
-    document.body.appendChild(element);
-    // Delete until here if not testing
-
 });
 
 </script> 
