@@ -1,6 +1,6 @@
-In this repository you can find HTML/JavaScript code to restraint LLM use in online research tools that based on web-browsers.
+In this repository you can find HTML files containing HTML and JavaScript code to restraint LLM use in online research tools that based on web-browsers.
 
-Please note that all HTML code run JavaScript code. If you only want to use JavaScript code, you will find it in the HTML files as well between <script> </script> brackets.
+Please note that all HTML files run JavaScript code. If you only want to use JavaScript code, you will find it in the HTML files as well between <script> </script> brackets.
 
 All code is free for use.
 
