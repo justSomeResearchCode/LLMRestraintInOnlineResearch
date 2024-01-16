@@ -8,6 +8,6 @@ There are two types of code snippets in here: (1) cancel cut, copy and paste com
 
 2_ files contain HTML code that you can download and run in your browser for testing purposes. It contains code elements for testing that you should omit before employing the code in your research tool.
 
-3_ files contain code examples to save the variable values to your research tool's database. The first one contains code for Qualtrics, which has a JavaScript function to save data in the database, the second one saves the values in hidden input fields, which you can adapt for your research tool.
+3_ files contain code examples to save the variable values to your research tool's database. 3_1 contains code for Qualtrics, which has a JavaScript function to save data in the database, 3_2 stores the variable values in hidden input fields, which you can adapt for your research tool if it provides hidden input fields.
 
 You will find additional information in the comments of the respective code.
