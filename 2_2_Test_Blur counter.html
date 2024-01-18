@@ -43,8 +43,11 @@ document.addEventListener("focus", (event) => {
 
     // Displays information for testing, please delete this line and the following lines until document.body.appendChild(element); when not testing
     let element = document.createElement('div');
-    element.textContent = "Number of times you left the page: " + counterPageLeave + "; " + "number of seconds you have been outside the page: " + secondsOutsideWindow;
+    element.textContent = "Please click on this page to start with the counter";
     document.body.appendChild(element);
+    let element2 = document.createElement('div');
+    element2.textContent = "Number of times you left the page: " + counterPageLeave + "; " + "number of seconds you have been outside the page: " + secondsOutsideWindow;
+    document.body.appendChild(element2);
     // Delete until here if not testing
 
 });
