@@ -11,6 +11,11 @@ let secondsOutsideWindow = 0;
 let startSecondsOutsideWindow = 0;
 let endSecondsOutsideWindow = 0;
 
+//Delete next three lines when not testing.
+let element = document.createElement('div');
+element.textContent = "Please click on this page to start with the counter";
+document.body.appendChild(element);
+
 // Send your initial values to your survey tool database here
 
 // Insert JavaScript code  canceling cut, copy, paste commands here
@@ -42,9 +47,6 @@ document.addEventListener("focus", (event) => {
     // Implement the handler for variable secondsOutsideWindow right here
 
     // Displays information for testing, please delete this line and the following lines until document.body.appendChild(element); when not testing
-    let element = document.createElement('div');
-    element.textContent = "Please click on this page to start with the counter";
-    document.body.appendChild(element);
     let element2 = document.createElement('div');
     element2.textContent = "Number of times you left the page: " + counterPageLeave + "; " + "number of seconds you have been outside the page: " + secondsOutsideWindow;
     document.body.appendChild(element2);
