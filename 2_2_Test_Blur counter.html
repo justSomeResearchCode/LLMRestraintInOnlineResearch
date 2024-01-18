@@ -12,7 +12,9 @@ let startSecondsOutsideWindow = 0;
 let endSecondsOutsideWindow = 0;
 
 //Delete next line when not testing
-alert("Click on the page to start the counter");
+let element = document.createElement('div');
+element.textContent = "Please click on this page to start with the counter";
+document.body.appendChild(element);
 
 // Send your initial values to your survey tool database here
 
