@@ -20,7 +20,7 @@ Qualtrics.SurveyEngine.setEmbeddedData('nameEmbeddedVariable', secondsOutsideWin
 // Insert JavaScript code canceling cut, copy, paste commands here
 
 // EventListener counting variable counterBlur if webpage is blurred
-document.addEventListener("blur", (event) => {
+window.addEventListener("blur", (event) => {
     counterBlur = counterBlur + 1;
     // Implement the handler for variable counterBlur right here
     Qualtrics.SurveyEngine.setEmbeddedData('nameEmbeddedVariable', counterBlur);
@@ -30,7 +30,7 @@ document.addEventListener("blur", (event) => {
 });
 
 // EventListener that stops time counter outside the study’s web page when participants refocus on web page
-document.addEventListener("focus", (event) => {
+window.addEventListener("focus", (event) => {
     
     // Takes unix timestamp in seconds for focus of web page
     endSecondsOutsideWindow = Math.floor(Date.now() / 1000);
