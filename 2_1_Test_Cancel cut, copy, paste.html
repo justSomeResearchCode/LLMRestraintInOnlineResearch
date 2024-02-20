@@ -11,12 +11,12 @@ inputField.style.height = '20px';
 document.body.appendChild(inputField);
 
 // Cancels cut commands on a web page
-document.addEventListener("cut", function(cutCommand) {
+window.addEventListener("cut", function(cutCommand) {
     cutCommand.preventDefault();
 });
 
 // Cancels copy commands on a web page
-document.addEventListener("copy", function(copyCommand) {
+window.addEventListener("copy", function(copyCommand) {
     copyCommand.preventDefault();
 });
 
