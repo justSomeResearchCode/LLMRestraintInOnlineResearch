@@ -21,11 +21,11 @@ document.body.appendChild(element);
 
 // Insert JavaScript code  canceling cut, copy, paste commands here
 
-// EventListener counting variable counterPageLeave if web page is blurred
+// EventListener counting variable counterBlur if web page is blurred
 window.addEventListener("blur", (event) => {
-    counterPageLeave = counterPageLeave + 1;
+    counterBlur = counterBlur + 1;
     
-    // Implement the handler for variable counterPageLeave right here
+    // Implement the handler for variable counterBlur right here
     
     // Takes unix timestamp in seconds for blurring of web page
     startSecondsOutsideWindow = Math.floor(Date.now() / 1000);
@@ -38,10 +38,10 @@ window.addEventListener("focus", (event) => {
     endSecondsOutsideWindow = Math.floor(Date.now() / 1000);
    
     // Calculates time difference between leaving and refocus
-    if (counterPageLeave > 0) {
+    if (counterBlur > 0) {
         secondsOutsideWindow = secondsOutsideWindow +    endSecondsOutsideWindow - startSecondsOutsideWindow;
     }
-    if (counterPageLeave === 0) {
+    if (counterBlur === 0) {
         secondsOutsideWindow = 0;
     }
     
@@ -49,7 +49,7 @@ window.addEventListener("focus", (event) => {
 
     // Displays information for testing, please delete this line and the following lines until document.body.appendChild(element); when not testing
     let element2 = document.createElement('div');
-    element2.textContent = "Number of times you left the page: " + counterPageLeave + "; " + "number of seconds you have been outside the page: " + secondsOutsideWindow;
+    element2.textContent = "Number of times you left the page: " + counterBlur + "; " + "number of seconds you have been outside the page: " + secondsOutsideWindow;
     document.body.appendChild(element2);
     // Delete until here if not testing
 
