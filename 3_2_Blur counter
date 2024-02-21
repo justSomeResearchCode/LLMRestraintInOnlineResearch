@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+    
+// Counter for the number of times that participants leave the web page
+    
+// Declaring variables for counting up the number of times participants blur a web page, 
+// how long participants left web page overall and a start and end timestamp variable
+let counterBlur = 0;
+let secondsOutsideWindow = 0;
+let startSecondsOutsideWindow = 0;
+let endSecondsOutsideWindow = 0;
+
+// Send your initial values to your survey tool database here
+
+// Insert JavaScript code  canceling cut, copy, paste commands here
+
+// EventListener counting variable counterBlur if web page is blurred
+window.addEventListener("blur", (event) => {
+    counterBlur = counterBlur + 1;
+    
+    // Implement the handler for variable counterBlur right here
+    
+    // Takes unix timestamp in seconds for blurring of web page
+    startSecondsOutsideWindow = Math.floor(Date.now() / 1000);
+});
+
+// EventListener that calculates participants’ time outside the web page when participants refocus web page
+window.addEventListener("focus", (event) => {
+    
+    // Takes unix timestamp in seconds for focus of web page
+    endSecondsOutsideWindow = Math.floor(Date.now() / 1000);
+   
+    // Calculates time difference between leaving and refocus
+    if (counterBlur > 0) {
+        secondsOutsideWindow = secondsOutsideWindow +    endSecondsOutsideWindow - startSecondsOutsideWindow;
+    }
+    if (counterBlur === 0) {
+        secondsOutsideWindow = 0;
+    }
+    
+    // Implement the handler for variable secondsOutsideWindow right here
+
+});
+
+</script> 
+</body> 
+</html>
