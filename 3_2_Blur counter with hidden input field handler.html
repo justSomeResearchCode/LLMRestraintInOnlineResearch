@@ -44,7 +44,7 @@ window.addEventListener("blur", (event) => {
     startSecondsOutsideWindow = Math.floor(Date.now() / 1000);
 });
 
-// EventListener that stops time counter outside the study’s web page when participants refocus on web page
+// EventListener that calculates participants’ time outside the study’s page when participants refocus study page
 window.addEventListener("focus", (event) => {
 
     // Takes unix timestamp in seconds for focus of web page
