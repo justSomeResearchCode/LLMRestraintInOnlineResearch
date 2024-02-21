@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+
+// Cancels cut commands on a web page
+window.addEventListener("cut", function(cutCommand) {
+    cutCommand.preventDefault();
+});
+
+// Cancels copy commands on a web page
+window.addEventListener("copy", function(copyCommand) {
+    copyCommand.preventDefault();
+});
+
+// Cancels paste commands on a web page
+document.addEventListener("paste", function(pasteCommands) {
+    pasteCommands.preventDefault();
+});
+
+</script> 
+
+</body>
+</html>
