@@ -3,10 +3,10 @@
 <body>
 <script>
     
-// Counter for the number of times that participants leave the study page
+// Counter for the number of times that participants leave the web page
     
-// Declaring variables for counting up the number of times participants blur a study page, 
-// how long participants left study page overall and a start and end timestamp variable
+// Declaring variables for counting up the number of times participants blur a web page, 
+// how long participants left web page overall and a start and end timestamp variable
 let counterBlur = 0;
 let secondsOutsideWindow = 0;
 let startSecondsOutsideWindow = 0;
@@ -21,20 +21,20 @@ document.body.appendChild(element);
 
 // Insert JavaScript code  canceling cut, copy, paste commands here
 
-// EventListener counting variable counterPageLeave if webpage is blurred
+// EventListener counting variable counterPageLeave if web page is blurred
 window.addEventListener("blur", (event) => {
     counterPageLeave = counterPageLeave + 1;
     
     // Implement the handler for variable counterPageLeave right here
     
-    // Takes unix timestamp in seconds for blurring of study page
+    // Takes unix timestamp in seconds for blurring of web page
     startSecondsOutsideWindow = Math.floor(Date.now() / 1000);
 });
 
-// EventListener that calculates participants’ time outside the study’s page when participants refocus study page
+// EventListener that calculates participants’ time outside the web page when participants refocus web page
 window.addEventListener("focus", (event) => {
     
-    // Takes unix timestamp in seconds for focus of study page
+    // Takes unix timestamp in seconds for focus of web page
     endSecondsOutsideWindow = Math.floor(Date.now() / 1000);
    
     // Calculates time difference between leaving and refocus
