@@ -26,14 +26,14 @@ window.addEventListener("blur", (event) => {
     // Implement the handler for variable counterBlur right here
     Qualtrics.SurveyEngine.setEmbeddedData('nameEmbeddedVariable', counterBlur);
 
-    // Takes unix timestamp in seconds for blurring of web page
+    // Takes unix timestamp in seconds for blurring of study page
     startSecondsOutsideWindow = Math.floor(Date.now() / 1000);
 });
 
 // EventListener that calculates participants’ time outside the study’s page when participants refocus study page
 window.addEventListener("focus", (event) => {
     
-    // Takes unix timestamp in seconds for focus of web page
+    // Takes unix timestamp in seconds for focus of study page
     endSecondsOutsideWindow = Math.floor(Date.now() / 1000);
     if (counterBlur > 0) { // Calculates time difference between leaving and refocus
         secondsOutsideWindow = secondsOutsideWindow +    endSecondsOutsideWindow - startSecondsOutsideWindow;
