@@ -11,6 +11,7 @@ let counterBlur = 0;
 let secondsOutsideWindow = 0;
 let startSecondsOutsideWindow = 0;
 let endSecondsOutsideWindow = 0;
+let pageHasFocus = document.hasFocus();
 
 //Delete next three lines when not testing
 let element = document.createElement('div');
@@ -29,30 +30,38 @@ window.addEventListener("blur", (event) => {
     
     // Takes unix timestamp in seconds for blurring of web page
     startSecondsOutsideWindow = Math.floor(Date.now() / 1000);
+
+    pageHasFocus = false;
+
 });
 
 // EventListener that calculates participants’ time outside the web page when participants refocus web page
 window.addEventListener("focus", (event) => {
     
-    // Takes unix timestamp in seconds for focus of web page
-    endSecondsOutsideWindow = Math.floor(Date.now() / 1000);
+    if(pageHasFocus === false){
+
+        // Takes unix timestamp in seconds for focus of web page
+        endSecondsOutsideWindow = Math.floor(Date.now() / 1000);
    
-    // Calculates time difference between leaving and refocus
-    if (counterBlur > 0) {
-        secondsOutsideWindow = secondsOutsideWindow +    endSecondsOutsideWindow - startSecondsOutsideWindow;
-    }
-    if (counterBlur === 0) {
-        secondsOutsideWindow = 0;
-    }
+        // Calculates time difference between leaving and refocus
+        if (counterBlur > 0) {
+            secondsOutsideWindow = secondsOutsideWindow +    endSecondsOutsideWindow - startSecondsOutsideWindow;
+        }
+        if (counterBlur === 0) {
+            secondsOutsideWindow = 0;
+        }
     
-    // Implement the handler for variable secondsOutsideWindow right here
+        // Implement the handler for variable secondsOutsideWindow right here
+    
+        // Displays information for testing, please delete this line and the following lines until document.body.appendChild(element); when not testing
+        let element2 = document.createElement('div');
+        element2.textContent = "Number of times you left the page: " + counterBlur + "; " + "number of seconds you have been outside the page: " + secondsOutsideWindow;
+        document.body.appendChild(element2);
+        // Delete until here if not testing
 
-    // Displays information for testing, please delete this line and the following lines until document.body.appendChild(element); when not testing
-    let element2 = document.createElement('div');
-    element2.textContent = "Number of times you left the page: " + counterBlur + "; " + "number of seconds you have been outside the page: " + secondsOutsideWindow;
-    document.body.appendChild(element2);
-    // Delete until here if not testing
+        pageHasFocus = true;
 
+    }
 });
 
 </script> 
