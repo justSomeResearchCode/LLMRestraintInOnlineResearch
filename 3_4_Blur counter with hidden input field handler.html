@@ -2,18 +2,17 @@
 <html>
 <body>
 <script>
-
-// You will need to adapt the hidden input field ID (“v_1”) and (“v_2”) to the ID of your variable. 
-// If you have existing hidden input fields, you need to adapt (“v_1”) and (“v_2”) to your hidden input field ID that is already in place.
-
+    
 // Counter for the number of times that participants leave the web page
     
 // Declaring variables for counting up the number of times participants blur a web page, 
-// how long participants left web page overall and a start and end timestamp variable
+// how long participants left the web page overall and a start and end timestamp variable,
+// introducing variable windowHasFocus to prevent false function from executing code when window was not previously blurred
 let counterBlur = 0;
 let secondsOutsideWindow = 0;
 let startSecondsOutsideWindow = 0;
 let endSecondsOutsideWindow = 0;
+let windowHasFocus = document.hasFocus();
 
 // Creates a hidden input field that has the id v_1, if hidden input field is already in place, you should delete this part
 let hiddenInput1 = document.createElement("input"); 
@@ -36,31 +35,44 @@ document.getElementById("v_2").value = secondsOutsideWindow;
 // EventListener counting variable counterBlur if web page is blurred
 window.addEventListener("blur", (event) => {
     counterBlur = counterBlur + 1;
-
+    
     // Implement the handler for variable counterBlur right here
     document.getElementById("v_1").value = counterBlur;
-
+    
     // Takes unix timestamp in seconds for blurring of web page
     startSecondsOutsideWindow = Math.floor(Date.now() / 1000);
+
+    // Set windowHasFocus to false to execute code inside eventListener upon focus of window
+    windowHasFocus = false;
+
 });
 
-// EventListener that calculates participants’ time outside the study’s page when participants refocus web page
+// EventListener that calculates participants’ time outside the web page when participants refocus web page
 window.addEventListener("focus", (event) => {
 
-    // Takes unix timestamp in seconds for focus of web page
-    endSecondsOutsideWindow = Math.floor(Date.now() / 1000);
-    if (counterBlur > 0) { // Calculates time difference between leaving and refocus
-        secondsOutsideWindow = secondsOutsideWindow +    endSecondsOutsideWindow - startSecondsOutsideWindow;
-    }
-    if (counterBlur === 0) {
-        secondsOutsideWindow = 0;
-    }
-    
-    // Implement the handler for variable secondsOutsideWindow right here    
-    document.getElementById("v_2").value = secondsOutsideWindow;
+    // Check if window has been 
+    if(windowHasFocus === false){
 
+        // Takes unix timestamp in seconds for focus of web page
+        endSecondsOutsideWindow = Math.floor(Date.now() / 1000);
+   
+        // Calculates time difference between leaving and refocus
+        if (counterBlur > 0) {
+            secondsOutsideWindow = secondsOutsideWindow + endSecondsOutsideWindow - startSecondsOutsideWindow;
+        }
+        if (counterBlur === 0) {
+            secondsOutsideWindow = 0;
+        }
+    
+        // Implement the handler for variable secondsOutsideWindow right here    
+        document.getElementById("v_2").value = secondsOutsideWindow;
+
+        // Set windowHasFocus to true so that eventListener for focus does execute code when window was not previously blurred
+        windowHasFocus = true;
+
+    }
 });
 
 </script> 
-
-</body>
+</body> 
+</html>
