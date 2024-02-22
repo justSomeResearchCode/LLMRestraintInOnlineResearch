@@ -6,7 +6,7 @@
 // Counter for the number of times that participants leave the web page
     
 // Declaring variables for counting up the number of times participants blur a web page, 
-// how long participants left web page overall and a start and end timestamp variable
+// how long participants left the web page overall and a start and end timestamp variable
 let counterBlur = 0;
 let secondsOutsideWindow = 0;
 let startSecondsOutsideWindow = 0;
@@ -31,13 +31,15 @@ window.addEventListener("blur", (event) => {
     // Takes unix timestamp in seconds for blurring of web page
     startSecondsOutsideWindow = Math.floor(Date.now() / 1000);
 
+    // Set pageHasFocus to false to execute code inside eventListener upon focus of window
     pageHasFocus = false;
 
 });
 
 // EventListener that calculates participants’ time outside the web page when participants refocus web page
 window.addEventListener("focus", (event) => {
-    
+
+    // Check if window has been 
     if(pageHasFocus === false){
 
         // Takes unix timestamp in seconds for focus of web page
@@ -59,6 +61,7 @@ window.addEventListener("focus", (event) => {
         document.body.appendChild(element2);
         // Delete until here if not testing
 
+        // Set pageHasFocus to true so that eventListener for focus does execute code when window was not previously blurred
         pageHasFocus = true;
 
     }
