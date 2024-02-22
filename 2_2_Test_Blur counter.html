@@ -11,7 +11,7 @@ let counterBlur = 0;
 let secondsOutsideWindow = 0;
 let startSecondsOutsideWindow = 0;
 let endSecondsOutsideWindow = 0;
-let pageHasFocus = document.hasFocus();
+let windowHasFocus = document.hasFocus();
 
 //Delete next three lines when not testing
 let element = document.createElement('div');
@@ -31,8 +31,8 @@ window.addEventListener("blur", (event) => {
     // Takes unix timestamp in seconds for blurring of web page
     startSecondsOutsideWindow = Math.floor(Date.now() / 1000);
 
-    // Set pageHasFocus to false to execute code inside eventListener upon focus of window
-    pageHasFocus = false;
+    // Set windowHasFocus to false to execute code inside eventListener upon focus of window
+    windowHasFocus = false;
 
 });
 
@@ -40,7 +40,7 @@ window.addEventListener("blur", (event) => {
 window.addEventListener("focus", (event) => {
 
     // Check if window has been 
-    if(pageHasFocus === false){
+    if(windowHasFocus === false){
 
         // Takes unix timestamp in seconds for focus of web page
         endSecondsOutsideWindow = Math.floor(Date.now() / 1000);
@@ -61,8 +61,8 @@ window.addEventListener("focus", (event) => {
         document.body.appendChild(element2);
         // Delete until here if not testing
 
-        // Set pageHasFocus to true so that eventListener for focus does execute code when window was not previously blurred
-        pageHasFocus = true;
+        // Set windowHasFocus to true so that eventListener for focus does execute code when window was not previously blurred
+        windowHasFocus = true;
 
     }
 });
